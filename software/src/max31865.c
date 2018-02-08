@@ -24,6 +24,8 @@
 #include "configs/config_max31865.h"
 #include "bricklib2/os/coop_task.h"
 
+#include "communication.h"
+
 MAX31865 max31865;
 CoopTask max31865_task;
 
@@ -123,7 +125,9 @@ void max31865_tick_task(void) {
 void max31865_init(void) {
 	// Initialize the whole struct as zero
 	memset(&max31865, 0, sizeof(MAX31865));
-	max31865.first_value = true;
+	max31865.first_value  = true;
+	max31865.wire_mode    = PTC_V2_WIRE_MODE_2;
+	max31865.noise_filter = PTC_V2_FILTER_OPTION_50HZ;
 
 	// USIC channel configuration
 	const XMC_SPI_CH_CONFIG_t channel_config = {
