@@ -54,6 +54,10 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 
 
 BootloaderHandleMessageResponse set_noise_rejection_filter(const SetNoiseRejectionFilter *data) {
+	if(data->filter > PTC_V2_FILTER_OPTION_60HZ) {
+		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
+	}
+
 	max31865.noise_filter     = data->filter;
 	max31865.new_noise_filter = true;
 	if(data->filter == 0) {
@@ -80,6 +84,10 @@ BootloaderHandleMessageResponse is_sensor_connected(const IsSensorConnected *dat
 }
 
 BootloaderHandleMessageResponse set_wire_mode(const SetWireMode *data) {
+	if(data->mode < PTC_V2_WIRE_MODE_2 || data->mode > PTC_V2_WIRE_MODE_4) {
+		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
+	}
+
 	max31865.wire_mode     = data->mode;
 	max31865.new_wire_mode = true;
 
@@ -100,6 +108,11 @@ BootloaderHandleMessageResponse get_wire_mode(const GetWireMode *data, GetWireMo
 }
 
 BootloaderHandleMessageResponse set_moving_average_configuration(const SetMovingAverageConfiguration *data) {
+	if((data->moving_average_length_resistance  < 1) || (data->moving_average_length_resistance  > 1000) ||
+	   (data->moving_average_length_temperature < 1) || (data->moving_average_length_temperature > 1000)) {
+		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
+	}
+
 	moving_average_new_length(&max31865.moving_average_resistance,  data->moving_average_length_resistance);
 	moving_average_new_length(&max31865.moving_average_temperature, data->moving_average_length_temperature);
 
