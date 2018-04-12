@@ -1,4 +1,4 @@
-PTC Bricklet 2,0
+PTC Bricklet 2.0
 ================
 
  *This Bricklet is currently in development*
@@ -38,18 +38,16 @@ modify the schematics and the PCB layout.
 Software
 --------
 
-To compile the C code we recommend you to install the newest CodeSourcery ARM
-EABI GCC compiler
-(https://sourcery.mentor.com/sgpp/lite/arm/portal/subscription?@template=lite).
-You also need to install bricklib (https://github.com/Tinkerforge/bricklib)
-and brickletlib (https://github.com/Tinkerforge/brickletlib).
+To compile the C code we recommend you to install the newest GNU Arm Embedded 
+Toolchain (https://launchpad.net/gcc-arm-embedded/+download).
+You also need to install bricklib2 (https://github.com/Tinkerforge/bricklib2).
 You can either clone them directly in software/src/ or clone them in a
 separate folder and symlink them into software/src/
-(ln -s bricklib_path/bricklib project_path/software/src/). Finally make sure to
+(ln -s bricklib_path/bricklib2 project_path/software/src/). Finally make sure to
 have CMake installed (http://www.cmake.org/cmake/resources/software.html).
 
 After that you can generate a Makefile from the cmake script with the
 generate_makefile shell script (in software/) and build the firmware
-by invoking make in software/build/. The firmware (.bin) can then be found
+by invoking make in software/build/. The firmware (.zbin) can then be found
 in software/build/ and uploaded with brickv (click button "Flashing"
 on start screen).
