@@ -46,8 +46,8 @@ To compile the C code we recommend you to install the newest GNU Arm Embedded
 Toolchain (https://launchpad.net/gcc-arm-embedded/+download).
 You also need to install bricklib2 (https://github.com/Tinkerforge/bricklib2).
 
-You can either clone them directly in software/src/ or clone them in a
-separate folder and symlink them into software/src/
+You can either clone it directly in software/src/ or clone it in a
+separate folder and symlink it into software/src/
 (ln -s bricklib_path/bricklib2 project_path/software/src/). Finally make sure to
 have CMake installed (http://www.cmake.org/cmake/resources/software.html).
 
