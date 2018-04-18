@@ -48,6 +48,8 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 		case FID_GET_WIRE_MODE: return get_wire_mode(message, response);
 		case FID_SET_MOVING_AVERAGE_CONFIGURATION: return set_moving_average_configuration(message);
 		case FID_GET_MOVING_AVERAGE_CONFIGURATION: return get_moving_average_configuration(message, response);
+		case FID_SET_SENSOR_CONNECTED_CALLBACK_CONFIGURATION: return set_sensor_connected_callback_configuration(message);
+		case FID_GET_SENSOR_CONNECTED_CALLBACK_CONFIGURATION: return get_sensor_connected_callback_configuration(message, response);
 		default: return HANDLE_MESSAGE_RESPONSE_NOT_SUPPORTED;
 	}
 }
@@ -127,6 +129,19 @@ BootloaderHandleMessageResponse get_moving_average_configuration(const GetMoving
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
+BootloaderHandleMessageResponse set_sensor_connected_callback_configuration(const SetSensorConnectedCallbackConfiguration *data) {
+	max31865.sensor_connected_callback_enabled = data->enabled;
+
+	return HANDLE_MESSAGE_RESPONSE_EMPTY;
+}
+
+BootloaderHandleMessageResponse get_sensor_connected_callback_configuration(const GetSensorConnectedCallbackConfiguration *data, GetSensorConnectedCallbackConfiguration_Response *response) {
+	response->header.length = sizeof(GetSensorConnectedCallbackConfiguration_Response);
+	response->enabled       = max31865.sensor_connected_callback_enabled;
+
+	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
+}
+
 
 bool handle_temperature_callback(void) {
 	return handle_callback_value_callback(&callback_value_temperature, FID_CALLBACK_TEMPERATURE);
@@ -135,6 +150,35 @@ bool handle_temperature_callback(void) {
 bool handle_resistance_callback(void) {
 	return handle_callback_value_callback(&callback_value_resistance, FID_CALLBACK_RESISTANCE);
 }
+
+bool handle_sensor_connected_callback(void) {
+	static bool is_buffered = false;
+	static SensorConnected_Callback cb;
+	static bool last_fault = true;
+
+	if(!max31865.sensor_connected_callback_enabled) {
+		return false;
+	}
+
+	if(!is_buffered && (last_fault != max31865.fault)) {
+		last_fault = max31865.fault;
+		tfp_make_default_header(&cb.header, bootloader_get_uid(), sizeof(SensorConnected_Callback), FID_CALLBACK_SENSOR_CONNECTED);
+		cb.connected = !last_fault;
+	} else {
+		return false;
+	}
+
+	if(bootloader_spitfp_is_send_possible(&bootloader_status.st)) {
+		bootloader_spitfp_send_ack_and_message(&bootloader_status, (uint8_t*)&cb, sizeof(SensorConnected_Callback));
+		is_buffered = false;
+		return true;
+	} else {
+		is_buffered = true;
+	}
+
+	return false;
+}
+
 
 void communication_tick(void) {
 	communication_callback_tick();

@@ -79,9 +79,12 @@ void communication_init(void);
 #define FID_GET_WIRE_MODE 13
 #define FID_SET_MOVING_AVERAGE_CONFIGURATION 14
 #define FID_GET_MOVING_AVERAGE_CONFIGURATION 15
+#define FID_SET_SENSOR_CONNECTED_CALLBACK_CONFIGURATION 16
+#define FID_GET_SENSOR_CONNECTED_CALLBACK_CONFIGURATION 17
 
 #define FID_CALLBACK_TEMPERATURE 4
 #define FID_CALLBACK_RESISTANCE 8
+#define FID_CALLBACK_SENSOR_CONNECTED 18
 
 typedef struct {
 	TFPMessageHeader header;
@@ -136,6 +139,25 @@ typedef struct {
 	uint16_t moving_average_length_temperature;
 } __attribute__((__packed__)) GetMovingAverageConfiguration_Response;
 
+typedef struct {
+	TFPMessageHeader header;
+	bool enabled;
+} __attribute__((__packed__)) SetSensorConnectedCallbackConfiguration;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) GetSensorConnectedCallbackConfiguration;
+
+typedef struct {
+	TFPMessageHeader header;
+	bool enabled;
+} __attribute__((__packed__)) GetSensorConnectedCallbackConfiguration_Response;
+
+typedef struct {
+	TFPMessageHeader header;
+	bool connected;
+} __attribute__((__packed__)) SensorConnected_Callback;
+
 
 // Function prototypes
 BootloaderHandleMessageResponse set_noise_rejection_filter(const SetNoiseRejectionFilter *data);
@@ -145,16 +167,20 @@ BootloaderHandleMessageResponse set_wire_mode(const SetWireMode *data);
 BootloaderHandleMessageResponse get_wire_mode(const GetWireMode *data, GetWireMode_Response *response);
 BootloaderHandleMessageResponse set_moving_average_configuration(const SetMovingAverageConfiguration *data);
 BootloaderHandleMessageResponse get_moving_average_configuration(const GetMovingAverageConfiguration *data, GetMovingAverageConfiguration_Response *response);
+BootloaderHandleMessageResponse set_sensor_connected_callback_configuration(const SetSensorConnectedCallbackConfiguration *data);
+BootloaderHandleMessageResponse get_sensor_connected_callback_configuration(const GetSensorConnectedCallbackConfiguration *data, GetSensorConnectedCallbackConfiguration_Response *response);
 
 // Callbacks
 bool handle_temperature_callback(void);
 bool handle_resistance_callback(void);
+bool handle_sensor_connected_callback(void);
 
 #define COMMUNICATION_CALLBACK_TICK_WAIT_MS 1
-#define COMMUNICATION_CALLBACK_HANDLER_NUM 2
+#define COMMUNICATION_CALLBACK_HANDLER_NUM 3
 #define COMMUNICATION_CALLBACK_LIST_INIT \
 	handle_temperature_callback, \
 	handle_resistance_callback, \
+	handle_sensor_connected_callback, \
 
 
 #endif

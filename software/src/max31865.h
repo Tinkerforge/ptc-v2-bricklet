@@ -40,6 +40,7 @@ typedef struct {
 	bool fault;
 
 	bool first_value;
+	bool sensor_connected_callback_enabled;
 
 	MovingAverage moving_average_temperature;
 	MovingAverage moving_average_resistance;
