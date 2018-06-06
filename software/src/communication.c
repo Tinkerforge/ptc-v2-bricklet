@@ -29,18 +29,17 @@
 
 extern MAX31865 max31865;
 
-CallbackValue callback_value_temperature;
-CallbackValue callback_value_resistance;
-
+CallbackValue_int32_t callback_value_temperature;
+CallbackValue_int32_t callback_value_resistance;
 
 BootloaderHandleMessageResponse handle_message(const void *message, void *response) {
 	switch(tfp_get_fid_from_message(message)) {
-		case FID_GET_TEMPERATURE: return get_callback_value(message, response, &callback_value_temperature);
-		case FID_SET_TEMPERATURE_CALLBACK_CONFIGURATION: return set_callback_value_callback_configuration(message, &callback_value_temperature);
-		case FID_GET_TEMPERATURE_CALLBACK_CONFIGURATION: return get_callback_value_callback_configuration(message, response, &callback_value_temperature);
-		case FID_GET_RESISTANCE: return get_callback_value(message, response, &callback_value_resistance);
-		case FID_SET_RESISTANCE_CALLBACK_CONFIGURATION: return set_callback_value_callback_configuration(message, &callback_value_resistance);
-		case FID_GET_RESISTANCE_CALLBACK_CONFIGURATION: return get_callback_value_callback_configuration(message, response, &callback_value_resistance);
+		case FID_GET_TEMPERATURE: return get_callback_value_int32_t(message, response, &callback_value_temperature);
+		case FID_SET_TEMPERATURE_CALLBACK_CONFIGURATION: return set_callback_value_callback_configuration_int32_t(message, &callback_value_temperature);
+		case FID_GET_TEMPERATURE_CALLBACK_CONFIGURATION: return get_callback_value_callback_configuration_int32_t(message, response, &callback_value_temperature);
+		case FID_GET_RESISTANCE: return get_callback_value_int32_t(message, response, &callback_value_resistance);
+		case FID_SET_RESISTANCE_CALLBACK_CONFIGURATION: return set_callback_value_callback_configuration_int32_t(message, &callback_value_resistance);
+		case FID_GET_RESISTANCE_CALLBACK_CONFIGURATION: return get_callback_value_callback_configuration_int32_t(message, response, &callback_value_resistance);
 		case FID_SET_NOISE_REJECTION_FILTER: return set_noise_rejection_filter(message);
 		case FID_GET_NOISE_REJECTION_FILTER: return get_noise_rejection_filter(message, response);
 		case FID_IS_SENSOR_CONNECTED: return is_sensor_connected(message, response);
@@ -53,7 +52,6 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 		default: return HANDLE_MESSAGE_RESPONSE_NOT_SUPPORTED;
 	}
 }
-
 
 BootloaderHandleMessageResponse set_noise_rejection_filter(const SetNoiseRejectionFilter *data) {
 	if(data->filter > PTC_V2_FILTER_OPTION_60HZ) {
@@ -142,13 +140,12 @@ BootloaderHandleMessageResponse get_sensor_connected_callback_configuration(cons
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
-
 bool handle_temperature_callback(void) {
-	return handle_callback_value_callback(&callback_value_temperature, FID_CALLBACK_TEMPERATURE);
+	return handle_callback_value_callback_int32_t(&callback_value_temperature, FID_CALLBACK_TEMPERATURE);
 }
 
 bool handle_resistance_callback(void) {
-	return handle_callback_value_callback(&callback_value_resistance, FID_CALLBACK_RESISTANCE);
+	return handle_callback_value_callback_int32_t(&callback_value_resistance, FID_CALLBACK_RESISTANCE);
 }
 
 bool handle_sensor_connected_callback(void) {
@@ -179,14 +176,13 @@ bool handle_sensor_connected_callback(void) {
 	return false;
 }
 
-
 void communication_tick(void) {
 	communication_callback_tick();
 }
 
 void communication_init(void) {
-	callback_value_init(&callback_value_temperature, max31865_get_temperature);
-	callback_value_init(&callback_value_resistance, max31865_get_resistance);
+	callback_value_init_int32_t(&callback_value_temperature, max31865_get_temperature);
+	callback_value_init_int32_t(&callback_value_resistance, max31865_get_resistance);
 
 	communication_callback_init();
 }
