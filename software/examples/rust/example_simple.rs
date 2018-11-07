@@ -1,21 +1,21 @@
 use std::{error::Error, io};
 
-use tinkerforge::{ipconnection::IpConnection, ptc_v2_bricklet::*};
+use tinkerforge::{ip_connection::IpConnection, ptc_v2_bricklet::*};
 
-const HOST: &str = "127.0.0.1";
+const HOST: &str = "localhost";
 const PORT: u16 = 4223;
-const UID: &str = "XYZ"; // Change XYZ to the UID of your PTC Bricklet 2.0
+const UID: &str = "XYZ"; // Change XYZ to the UID of your PTC Bricklet 2.0.
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let ipcon = IpConnection::new(); // Create IP connection
-    let ptc_v2_bricklet = PTCV2Bricklet::new(UID, &ipcon); // Create device object
+    let ipcon = IpConnection::new(); // Create IP connection.
+    let ptc = PtcV2Bricklet::new(UID, &ipcon); // Create device object.
 
-    ipcon.connect(HOST, PORT).recv()??; // Connect to brickd
-                                        // Don't use device before ipcon is connected
+    ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
+                                          // Don't use device before ipcon is connected.
 
-    // Get current temperature
-    let temperature = ptc_v2_bricklet.get_temperature().recv()?;
-    println!("Temperature: {}{}", temperature as f32 / 100.0, " °C");
+    // Get current temperature.
+    let temperature = ptc.get_temperature().recv()?;
+    println!("Temperature: {} °C", temperature as f32 / 100.0);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
