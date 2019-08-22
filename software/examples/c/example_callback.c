@@ -33,7 +33,7 @@ int main(void) {
 	// Register temperature callback to function cb_temperature
 	ptc_v2_register_callback(&ptc,
 	                         PTC_V2_CALLBACK_TEMPERATURE,
-	                         (void *)cb_temperature,
+	                         (void (*)(void))cb_temperature,
 	                         NULL);
 
 	// Set period for temperature callback to 1s (1000ms) without a threshold
