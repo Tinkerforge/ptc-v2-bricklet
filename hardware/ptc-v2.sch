@@ -16,7 +16,7 @@ Comment4 ""
 $EndDescr
 NoConn ~ 6450 4700
 $Comp
-L ptc-v2-rescue:Conn_02x04_Odd_Even P5
+L tinkerforge:Conn_02x04_Odd_Even P5
 U 1 1 509A9CE2
 P 8950 2450
 F 0 "P5" H 8950 2650 50  0000 C CNN
@@ -27,7 +27,7 @@ F 3 "" H 8950 2450 60  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L ptc-v2-rescue:Conn_02x04_Odd_Even P4
+L tinkerforge:Conn_02x04_Odd_Even P4
 U 1 1 509A9CDA
 P 8550 2450
 F 0 "P4" H 8550 2150 50  0000 C CNN
@@ -48,7 +48,7 @@ FORCE-
 Text GLabel 8850 1850 1    60   Output ~ 0
 FORCE+
 $Comp
-L ptc-v2-rescue:AGND #PWR01
+L tinkerforge:AGND #PWR01
 U 1 1 509A9299
 P 8750 1650
 F 0 "#PWR01" H 8750 1650 40  0001 C CNN
@@ -75,7 +75,7 @@ FORCE+
 Text GLabel 9450 3650 2    60   Output ~ 0
 RTDIN+
 $Comp
-L ptc-v2-rescue:C C7
+L tinkerforge:C C7
 U 1 1 509A912B
 P 8550 3200
 F 0 "C7" V 8700 3200 50  0000 L CNN
@@ -86,7 +86,7 @@ F 3 "" H 8550 3200 60  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L ptc-v2-rescue:C C8
+L tinkerforge:C C8
 U 1 1 509A8C8F
 P 8800 3200
 F 0 "C8" V 8650 3200 50  0000 L CNN
@@ -97,7 +97,7 @@ F 3 "" H 8800 3200 60  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L ptc-v2-rescue:INDUCT FB2
+L tinkerforge:INDUCT FB2
 U 1 1 509A8C72
 P 7150 2700
 F 0 "FB2" H 7300 2800 60  0000 C CNN
@@ -108,7 +108,7 @@ F 3 "" H 7150 2700 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:INDUCT FB1
+L tinkerforge:INDUCT FB1
 U 1 1 509A8C43
 P 7100 5500
 F 0 "FB1" V 7000 5500 60  0000 C CNN
@@ -119,7 +119,7 @@ F 3 "" H 7100 5500 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L ptc-v2-rescue:GND #PWR02
+L tinkerforge:GND #PWR02
 U 1 1 509A8C01
 P 6750 5600
 F 0 "#PWR02" H 6750 5600 30  0001 C CNN
@@ -130,7 +130,7 @@ F 3 "" H 6750 5600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:AGND #PWR03
+L tinkerforge:AGND #PWR03
 U 1 1 509A8BFE
 P 7450 5600
 F 0 "#PWR03" H 7450 5600 40  0001 C CNN
@@ -141,7 +141,7 @@ F 3 "" H 7450 5600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:GND #PWR04
+L tinkerforge:GND #PWR04
 U 1 1 509A8BE9
 P 6450 2900
 F 0 "#PWR04" H 6450 2900 30  0001 C CNN
@@ -152,7 +152,7 @@ F 3 "" H 6450 2900 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:AGND #PWR05
+L tinkerforge:AGND #PWR05
 U 1 1 509A8BDC
 P 7600 3100
 F 0 "#PWR05" H 7600 3100 40  0001 C CNN
@@ -163,7 +163,7 @@ F 3 "" H 7600 3100 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:C C5
+L tinkerforge:C C5
 U 1 1 509A8BC5
 P 6650 2850
 F 0 "C5" V 6800 2850 50  0000 L CNN
@@ -174,7 +174,7 @@ F 3 "" H 6650 2850 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L ptc-v2-rescue:C C6
+L tinkerforge:C C6
 U 1 1 509A8BC2
 P 7400 3050
 F 0 "C6" V 7550 3050 50  0000 L CNN
@@ -185,7 +185,7 @@ F 3 "" H 7400 3050 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L ptc-v2-rescue:VCC #PWR06
+L tinkerforge:VCC #PWR06
 U 1 1 509A8B8E
 P 6900 2350
 F 0 "#PWR06" H 6900 2450 30  0001 C CNN
@@ -196,7 +196,7 @@ F 3 "" H 6900 2350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:R R3
+L tinkerforge:R R3
 U 1 1 509A8AF8
 P 8400 3500
 F 0 "R3" V 8480 3500 50  0000 C CNN
@@ -207,7 +207,7 @@ F 3 "" H 8400 3500 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:R R2
+L tinkerforge:R R2
 U 1 1 509A8AC3
 P 8250 3500
 F 0 "R2" V 8150 3500 50  0000 C CNN
@@ -219,7 +219,7 @@ F 3 "" H 8250 3500 60  0001 C CNN
 $EndComp
 NoConn ~ 6450 4600
 $Comp
-L ptc-v2-rescue:MAX31865 U2
+L tinkerforge:MAX31865 U2
 U 1 1 509A8A05
 P 7100 4250
 F 0 "U2" H 6650 5300 60  0000 C CNN
@@ -230,7 +230,7 @@ F 3 "" H 7100 4250 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:AKL_5_2 J2
+L tinkerforge:AKL_5_2 J2
 U 1 1 509A8709
 P 9600 4350
 F 0 "J2" H 9700 4345 60  0000 C CNN
@@ -241,7 +241,7 @@ F 3 "" H 9600 4350 60  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L ptc-v2-rescue:AKL_5_2 J1
+L tinkerforge:AKL_5_2 J1
 U 1 1 509A8707
 P 9600 4150
 F 0 "J1" H 9700 4145 60  0000 C CNN
@@ -255,7 +255,7 @@ Text Notes 550  7700 0    40   ~ 0
 Copyright Tinkerforge GmbH 2018.\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.1.\nYou may redistribute and modify this documentation under the terms of the\nCERN OHL v.1.1. (http://ohwr.org/cernohl). This documentation is distributed\nWITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING OF\nMERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A\nPARTICULAR PURPOSE. Please see the CERN OHL v.1.1 for applicable\nconditions\n
 NoConn ~ 1350 3100
 $Comp
-L ptc-v2-rescue:DRILL U3
+L tinkerforge:DRILL U3
 U 1 1 4C6050A5
 P 10650 6150
 F 0 "U3" H 10700 6200 60  0001 C CNN
@@ -266,7 +266,7 @@ F 3 "" H 10650 6150 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:DRILL U4
+L tinkerforge:DRILL U4
 U 1 1 4C6050A2
 P 10650 6350
 F 0 "U4" H 10700 6400 60  0001 C CNN
@@ -277,7 +277,7 @@ F 3 "" H 10650 6350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:DRILL U6
+L tinkerforge:DRILL U6
 U 1 1 4C60509F
 P 11000 6350
 F 0 "U6" H 11050 6400 60  0001 C CNN
@@ -288,7 +288,7 @@ F 3 "" H 11000 6350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:DRILL U5
+L tinkerforge:DRILL U5
 U 1 1 4C605099
 P 11000 6150
 F 0 "U5" H 11050 6200 60  0001 C CNN
@@ -299,7 +299,7 @@ F 3 "" H 11000 6150 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:VCC #PWR07
+L tinkerforge:VCC #PWR07
 U 1 1 4C5FCFB4
 P 2200 2800
 F 0 "#PWR07" H 2200 2900 30  0001 C CNN
@@ -310,7 +310,7 @@ F 3 "" H 2200 2800 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:GND #PWR08
+L tinkerforge:GND #PWR08
 U 1 1 4C5FCF5E
 P 2200 3350
 F 0 "#PWR08" H 2200 3350 30  0001 C CNN
@@ -321,7 +321,7 @@ F 3 "" H 2200 3350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:GND #PWR09
+L tinkerforge:GND #PWR09
 U 1 1 4C5FCF4F
 P 1000 3950
 F 0 "#PWR09" H 1000 3950 30  0001 C CNN
@@ -332,7 +332,7 @@ F 3 "" H 1000 3950 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:CON-SENSOR2 P1
+L tinkerforge:CON-SENSOR2 P1
 U 1 1 4C5FCF27
 P 1000 3400
 F 0 "P1" H 1150 3800 60  0000 C CNN
@@ -343,7 +343,7 @@ F 3 "" H 1000 3400 60  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:R_PACK4 RP2
+L tinkerforge:R_PACK4 RP2
 U 1 1 51657BFE
 P 5550 4250
 F 0 "RP2" H 5550 4700 40  0000 C CNN
@@ -525,7 +525,7 @@ Connection ~ 8600 2000
 Wire Wire Line
 	7150 2350 7150 2450
 $Comp
-L ptc-v2-rescue:XMC1XXX24 U1
+L tinkerforge:XMC1XXX24 U1
 U 1 1 5A58D8E2
 P 4000 2800
 F 0 "U1" H 3850 3200 60  0000 C CNN
@@ -536,7 +536,7 @@ F 3 "" H 4150 3550 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:XMC1XXX24 U1
+L tinkerforge:XMC1XXX24 U1
 U 2 1 5A58D99B
 P 4000 3850
 F 0 "U1" H 3850 4400 60  0000 C CNN
@@ -547,7 +547,7 @@ F 3 "" H 4150 4600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:XMC1XXX24 U1
+L tinkerforge:XMC1XXX24 U1
 U 3 1 5A58DA9C
 P 4000 4850
 F 0 "U1" H 3850 5100 60  0000 C CNN
@@ -558,7 +558,7 @@ F 3 "" H 4150 5600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:XMC1XXX24 U1
+L tinkerforge:XMC1XXX24 U1
 U 4 1 5A58DB6C
 P 4000 5700
 F 0 "U1" H 3850 6150 60  0000 C CNN
@@ -579,7 +579,7 @@ Wire Wire Line
 Wire Wire Line
 	6750 5500 6850 5500
 $Comp
-L ptc-v2-rescue:C C3
+L tinkerforge:C C3
 U 1 1 5A58FC2A
 P 2200 3100
 F 0 "C3" V 2350 3100 50  0000 L CNN
@@ -590,7 +590,7 @@ F 3 "" H 2200 3100 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:C C2
+L tinkerforge:C C2
 U 1 1 5A5900BA
 P 1800 3100
 F 0 "C2" V 1950 3100 50  0000 L CNN
@@ -614,7 +614,7 @@ Wire Wire Line
 	2200 3350 2200 3300
 Connection ~ 2200 3300
 $Comp
-L ptc-v2-rescue:R_PACK4 RP1
+L tinkerforge:R_PACK4 RP1
 U 1 1 5A5907F2
 P 1850 3750
 F 0 "RP1" H 1850 3700 40  0000 C CNN
@@ -633,7 +633,7 @@ Wire Wire Line
 Wire Wire Line
 	1650 3400 1350 3400
 $Comp
-L ptc-v2-rescue:C C1
+L tinkerforge:C C1
 U 1 1 5A590EF3
 P 1500 3900
 F 0 "C1" V 1650 3900 50  0000 L CNN
@@ -644,7 +644,7 @@ F 3 "" H 1500 3900 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:GND #PWR010
+L tinkerforge:GND #PWR010
 U 1 1 5A59100E
 P 1500 4150
 F 0 "#PWR010" H 1500 4150 30  0001 C CNN
@@ -674,7 +674,7 @@ Wire Wire Line
 Wire Wire Line
 	2300 3400 2050 3400
 $Comp
-L ptc-v2-rescue:C C4
+L tinkerforge:C C4
 U 1 1 5A59176F
 P 3550 2750
 F 0 "C4" V 3700 2750 50  0000 L CNN
@@ -685,7 +685,7 @@ F 3 "" H 3550 2750 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:GND #PWR011
+L tinkerforge:GND #PWR011
 U 1 1 5A5917FF
 P 3550 3150
 F 0 "#PWR011" H 3550 3150 30  0001 C CNN
@@ -708,7 +708,7 @@ Wire Wire Line
 Wire Wire Line
 	3550 2450 3550 2500
 $Comp
-L ptc-v2-rescue:VCC #PWR012
+L tinkerforge:VCC #PWR012
 U 1 1 5A591C0F
 P 3550 2450
 F 0 "#PWR012" H 3550 2550 30  0001 C CNN
@@ -758,7 +758,7 @@ M-MOSI
 Text GLabel 3500 3600 0    60   Input ~ 0
 M-MISO
 $Comp
-L ptc-v2-rescue:LED D1
+L tinkerforge:LED D1
 U 1 1 5A59316A
 P 2550 5450
 F 0 "D1" H 2550 5550 50  0000 C CNN
@@ -769,7 +769,7 @@ F 3 "" H 2550 5450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ptc-v2-rescue:R R1
+L tinkerforge:R R1
 U 1 1 5A593390
 P 3050 5450
 F 0 "R1" V 3130 5450 50  0000 C CNN
@@ -780,7 +780,7 @@ F 3 "" H 3050 5450 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L ptc-v2-rescue:CONN_01X01 P2
+L tinkerforge:CONN_01X01 P2
 U 1 1 5A59359F
 P 3100 4800
 F 0 "P2" H 3100 4900 50  0000 C CNN
@@ -791,7 +791,7 @@ F 3 "" H 3100 4800 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L ptc-v2-rescue:CONN_01X02 P3
+L tinkerforge:CONN_01X02 P3
 U 1 1 5A593676
 P 2700 4950
 F 0 "P3" H 2700 5100 50  0000 C CNN
@@ -802,7 +802,7 @@ F 3 "" H 2700 4950 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L ptc-v2-rescue:GND #PWR013
+L tinkerforge:GND #PWR013
 U 1 1 5A593795
 P 2900 5050
 F 0 "#PWR013" H 2900 5050 30  0001 C CNN
@@ -828,7 +828,7 @@ Wire Wire Line
 	3650 3600 3500 3600
 Connection ~ 2200 2900
 $Comp
-L ptc-v2-rescue:VCC #PWR014
+L tinkerforge:VCC #PWR014
 U 1 1 5A5C5975
 P 2350 5350
 F 0 "#PWR014" H 2350 5450 30  0001 C CNN
