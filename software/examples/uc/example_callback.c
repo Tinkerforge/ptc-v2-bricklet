@@ -17,7 +17,7 @@ void example_loop(TF_HalContext *hal);
 static void temperature_handler(TF_PTCV2 *device, int32_t temperature, void *user_data) {
 	(void)device; (void)user_data; // avoid unused parameter warning
 
-	tf_hal_printf("Temperature: %d 1/%d °C\n", temperature, 100.0);
+	tf_hal_printf("Temperature: %d 1/%d °C\n", temperature, 100);
 }
 
 static TF_PTCV2 ptc;
