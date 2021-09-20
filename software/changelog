@@ -7,6 +7,6 @@
 2019-05-29: 2.0.2 (de4dae7)
 - Fix SPITFP IRQ race condition with other higher prio IRQs (through bricklib2)
 
-2021-09-20: 2.0.3 (TBD)
+2021-09-20: 2.0.3 (25d6fd8)
 - Fix bug in sensor connected callback delivery logic
 - Add 500ms debounce to connected value
