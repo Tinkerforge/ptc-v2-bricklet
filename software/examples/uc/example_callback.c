@@ -9,8 +9,8 @@
 
 void check(int rc, const char* msg);
 
-void example_setup(TF_HalContext *hal);
-void example_loop(TF_HalContext *hal);
+void example_setup(TF_HAL *hal);
+void example_loop(TF_HAL *hal);
 
 
 // Callback function for temperature callback
@@ -22,7 +22,7 @@ static void temperature_handler(TF_PTCV2 *device, int32_t temperature, void *use
 
 static TF_PTCV2 ptc;
 
-void example_setup(TF_HalContext *hal) {
+void example_setup(TF_HAL *hal) {
 	// Create device object
 	check(tf_ptc_v2_create(&ptc, UID, hal), "create device object");
 
@@ -35,7 +35,7 @@ void example_setup(TF_HalContext *hal) {
 	tf_ptc_v2_set_temperature_callback_configuration(&ptc, 1000, false, 'x', 0, 0);
 }
 
-void example_loop(TF_HalContext *hal) {
+void example_loop(TF_HAL *hal) {
 	// Poll for callbacks
 	tf_hal_callback_tick(hal, 0);
 }
